@@ -4,7 +4,7 @@ import { getWeather, getAirQuality } from "./api";
 import { LinearGradient } from "expo-linear-gradient";
 import { BlurView } from 'expo-blur';
 
-// Import background images
+// Imports for background images
 const weatherBackgrounds = {
     Clear: require("./assets/sunny.jpg"), 
     Clouds: require("./assets/cloudy.jpg"),
@@ -41,11 +41,13 @@ export const WeatherApp = () => {
         }
     };
 
+    // Get air quality description based on the AQI value
     const getAQIDescription = (aqi) => {
-        const descriptions = ["Good", "Fair", "Moderate", "Poor", "Very Poor"];
+        const descriptions = ["Very Good", "Fair", "Moderate", "Poor", "Very Poor"];
         return descriptions[aqi - 1] || "Unknown";
     };
 
+    // Get cardinal direction from wind degree for better readability
     const getCardinalDirection = (deg) => {
         if (deg > 337.5 || deg <= 22.5) return "N";
         if (deg > 22.5 && deg <= 67.5) return "NE";
@@ -66,11 +68,12 @@ export const WeatherApp = () => {
         <SafeAreaView style={styles.container} >
             <TextInput
                 placeholder="Enter the city name..."
+                placeholderTextColor="#808080"
                 value={city}
                 onChangeText={(text) => setCity(text)}
                 style={styles.searchInput}
             />
-            <Button onPress={handleSearch} title="Search" color="#FFF" />
+            <Button style={styles.searchBtn} onPress={handleSearch} title="Search" color="#FFF" />
 
             {error && <Text style={styles.error}>{error}</Text>}
 
@@ -147,13 +150,13 @@ const styles = StyleSheet.create({
         alignItems: "center",
     },
     searchInput: {
-        fontSize: 18,
-        height: 40,
-        width: 300,
+        fontSize: 22,
+        height: 45,
+        width: 280,
         color: "white",
         borderColor: "white",
         borderWidth: 1,
-        borderRadius: 10,
+        borderRadius: 25,
         marginTop: 50,
         marginBottom: 10,
         padding: 8,
@@ -164,6 +167,7 @@ const styles = StyleSheet.create({
         flexDirection: "column",
         marginTop: 20,
         alignItems: "center",
+        justifyContent: "flex-end",
     },
     grid: {
         flexDirection: "row",
@@ -180,7 +184,7 @@ const styles = StyleSheet.create({
     },
     blur: {
         flex: 1,
-        backgroundColor: "rgba(255, 255, 255, 0.01)",
+        backgroundColor: "rgba(255, 255, 255, 0.1)",
         justifyContent: "center",
         alignItems: "center",
         borderRadius: 10,
