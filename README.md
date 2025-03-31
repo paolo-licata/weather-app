@@ -46,10 +46,10 @@ To run this project locally, follow these steps:
 - Explore the weather details, including temperature, conditions, wind, humidity, and air quality graph.
 
 ## Screenshots
-![Clear Sky weather](assets/screenshots/image0.png)
-![Thunderstorm weather](assets/screenshots/image1.png)
-![Misty weather](assets/screenshots/image2.png)
-![Cloudy weather](assets/screenshots/image3.png)
+<img src="assets/screenshots/image0.png" alt="clear weather" width="300"/>
+<img src="assets/screenshots/image1.png" alt="thunderstorm weather" width="300"/>
+<img src="assets/screenshots/image2.png" alt="misty weather" width="300"/>
+<img src="assets/screenshots/image3.png" alt="cloudy weather" width="300"/>
 
 ## Author
 Paolo Licata
